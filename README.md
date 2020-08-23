@@ -1,2 +1,2 @@
-# computacao-grafica
-Computação Gráfica
+# Computação Gráfica
+Algoritmos desenvolvidos na disciplina de computação gráfica
