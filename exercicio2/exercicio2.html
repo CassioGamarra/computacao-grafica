@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <br />
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <form id="formulario">
+                    <label for="form">Matriz A</label>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a11" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a12" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a13" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a21" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a22" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a23" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a31" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a32" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizA" type="number" step="0.01" class="form-control" id="a33" required>
+                            </div>
+                        </div>
+                    </div>
+                    <label for="form">Matriz B</label>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b11" disabled>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b12" disabled>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b13" disabled>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b21" disabled>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b22" disabled>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b23" disabled>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b31" disabled>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b32" disabled>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <input name="matrizB" type="number" step="0.01" class="form-control" id="b33" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="operacoes">Operação</label>
+                        <select class="form-control" id="operacoes" name="operacoes" onchange="enableDisableActions()">
+                            <option value="transposta">Transposta da Matriz A</option>
+                            <option value="somaMatriz">Soma de Matrizes</option>
+                            <option value="subMatriz">Subtração de Matrizes</option>
+                            <option value="multMatriz">Multiplicação de Matrizes</option>
+                            <option value="multVetor">Multiplicação por Vetor</option>
+                            <option value="multEscalar">Multiplicação por Escalar</option>
+                            <option value="divEscalar">Divisão por Escalar</option>
+                        </select>
+                    </div>
+                    <div class="form-row" hidden="true" id="escalar">
+                        <div class="form-group col-md-3">
+                            <label for="valorEscalar">Valor do escalar</label>
+                            <input type="number" class="form-control" id="valorEscalar">
+                        </div>
+                    </div>
+                    <div class="form-row" hidden="true" id="vetor">
+                        <label for="form">Insira o valor de X, Y e Z de um vetor de 3 dimensões</label>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label for="x">X</label>
+                                <input type="number" step="0.01" class="form-control" id="x" name="vetor">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="y">Y</label>
+                                <input type="number" step="0.01" class="form-control" id="y" name="vetor">
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="z">Z</label>
+                                <input type="number" step="0.01" class="form-control" id="z" name="vetor">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="calcular()">Calcular</button>
+                    <button type="button" class="btn btn-primary" onclick="limparCampos()">Limpar valores</button>
+                </form>
+            </div>
+            <div class="col-sm"></div>
+        </div>
+        <br />
+        <div class="alert alert-success" role="alert" id="resultadoMatriz" hidden>
+            <label for="form">Matriz Reposta</label>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c11" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c12" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c13" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c21" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c22" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c23" disabled>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c31" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c32" disabled>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <input name="matrizReposta" type="number" step="0.01" class="form-control" id="c33" disabled>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-success" role="alert" id="resultado" hidden></div>
+        <div class="alert alert-warning" role="alert" id="alerta" hidden></div>
+    </div>
+</body>
+
+</html>
+
+<script src="script.js"></script>
